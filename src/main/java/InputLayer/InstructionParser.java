@@ -9,9 +9,9 @@ public class InstructionParser {
 
     List<InstructionEnum> roverInstruction(String input) throws Exception {
 
+
         if( input == null || input.isEmpty()){
-            throw new Exception("Invalid Input please enter enter either: 'l' - to rotate left 90 degrees, " +" "+
-                    "'r' - rotate right 90 degrees"+" "+"or 'm' to move forward one space in your current direction" );
+            throw new IllegalArgumentException("Invalid Input, input cannot be empty or null");
         }
 
         List<InstructionEnum> convertInputToEnum = new ArrayList<>();
@@ -25,7 +25,8 @@ public class InstructionParser {
             } else if (lowercaseInput.charAt(i) == 'm') {
                 convertInputToEnum.add(InstructionEnum.M);
             } else {
-                System.out.println("invalid rover instruction input please try again and enter only: 'l', 'r' or 'm' ");
+                throw new IllegalArgumentException("Invalid Input please enter enter either: 'l' - to rotate rover left 90 degrees, "+
+                "'r' - rotate rover right 90 degrees "+"or 'm' to move rover forward one space in its current facing direction");
             }
         }
         return convertInputToEnum;
