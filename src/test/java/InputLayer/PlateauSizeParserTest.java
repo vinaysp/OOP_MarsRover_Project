@@ -17,13 +17,13 @@ class PlateauSizeParserTest {
 
 
     @Test
-    @DisplayName("should return exception message when input is a invalid empty String")
-    void testPlateauSizParserWithInvalidEmptyStringInput(){
+    @DisplayName("parsedPlateauSize: should return exception message when input is a invalid empty string")
+    void testInvalidEmptyStringInput(){
         Exception exception = assertThrows(Exception.class, ()-> {
             plateauSizeParser.parsedPlateauSize("");
         });
 
-        String expectedMessage = "Invalid Input, input cannot be empty or null";
+        String expectedMessage = "Invalid input, input cannot be empty or null";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -31,13 +31,13 @@ class PlateauSizeParserTest {
     }
 
     @Test
-    @DisplayName("should return exception message when input is a invalid null input")
-    void testPlateauSizParserWithInvalidNullInput(){
+    @DisplayName("parsedPlateauSize: should return exception message when input is a invalid null input")
+    void testInvalidNullInput(){
         Exception exception = assertThrows(Exception.class, ()-> {
             plateauSizeParser.parsedPlateauSize(null);
         });
 
-        String expectedMessage = "Invalid Input, input cannot be empty or null";
+        String expectedMessage = "Invalid input, input cannot be empty or null";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -45,13 +45,13 @@ class PlateauSizeParserTest {
     }
 
     @Test
-    @DisplayName("should return exception message when input is a invalid String input")
-    void testPlateauSizParserWithInvalidCharStringInput(){
+    @DisplayName("parsedPlateauSize: should return exception message when input is a invalid string input")
+    void testInvalidTwoCharacterStringInput(){
         Exception exception = assertThrows(Exception.class, ()-> {
             plateauSizeParser.parsedPlateauSize("ab");
         });
 
-        String expectedMessage = "Invalid Input, please provide only two numbers between 1 and 9";
+        String expectedMessage = "Invalid input, please provide only two numbers between 1 and 9";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -59,13 +59,13 @@ class PlateauSizeParserTest {
     }
 
     @Test
-    @DisplayName("should return exception message when String input is more than two number characters")
-    void testPlateauSizParserWithInvalidStringInputMoreThanTwoCharacters(){
+    @DisplayName("parsedPlateauSize:should return exception message when string input is more than two number characters")
+    void testInvalidStringInputMoreThanTwoNumbers(){
         Exception exception = assertThrows(Exception.class, ()-> {
             plateauSizeParser.parsedPlateauSize("100");
         });
 
-        String expectedMessage = "Invalid Input, please provide two numbers between 1 and 9";
+        String expectedMessage = "Invalid input, please provide only two numbers between 1 and 9";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -73,8 +73,24 @@ class PlateauSizeParserTest {
     }
 
     @Test
-    @DisplayName("should return integer array with 2 numbers when inputting a valid String")
-    void testPlateauSizParserWithValidStringInput(){
+    @DisplayName("parsedPlateauSize: should return exception message when string input is more than two number characters")
+    void testInvalidStringInputMixOfNumberAndLetterCharacters(){
+        Exception exception = assertThrows(Exception.class, ()-> {
+            plateauSizeParser.parsedPlateauSize("ab1");
+        });
+
+        String expectedMessage = "Invalid input, please provide only two numbers between 1 and 9";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+
+    }
+
+
+
+    @Test
+    @DisplayName("parsedPlateauSize: should return integer array with 2 numbers when inputting a valid string")
+    void testValidStringInput() throws Exception {
         //Arrange
         String input = "22";
         int[] expectedResult = {2,2};
@@ -83,7 +99,7 @@ class PlateauSizeParserTest {
         int [] actualResult = plateauSizeParser.parsedPlateauSize(input);
 
         //Assert
-        assertEquals(expectedResult, actualResult);
+        assertArrayEquals(expectedResult,actualResult);
 
     }
 
