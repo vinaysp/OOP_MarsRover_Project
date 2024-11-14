@@ -46,7 +46,7 @@ class PlateauSizeParserTest {
 
     @Test
     @DisplayName("should return exception message when input is a invalid String input")
-    void testPlateauSizParserWithInvalidStringInput(){
+    void testPlateauSizParserWithInvalidCharStringInput(){
         Exception exception = assertThrows(Exception.class, ()-> {
             plateauSizeParser.parsedPlateauSize("ab");
         });
