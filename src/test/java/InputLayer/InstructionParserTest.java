@@ -1,6 +1,5 @@
 package InputLayer;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -23,7 +22,7 @@ class InstructionParserTest {
     @DisplayName("should return a exception message when passed invalid Empty String input")
     void testInstructionParserWithInvalidEmptyStringInput() throws Exception {
         Exception exception = assertThrows(Exception.class, ()-> {
-            instructionParser.roverInstruction("");
+            instructionParser.parseRoverInstructions("");
         });
 
         String expectedMessage = "Invalid Input, input cannot be empty or null";
@@ -38,7 +37,7 @@ class InstructionParserTest {
     void testInstructionParserWithInvalidNullInput() throws Exception {
 
         Exception exception = assertThrows(Exception.class, ()-> {
-            instructionParser.roverInstruction(null);
+            instructionParser.parseRoverInstructions(null);
         });
 
         String expectedMessage = "Invalid Input, input cannot be empty or null";
@@ -53,7 +52,7 @@ class InstructionParserTest {
     void testInstructionParserWithInvalidStringInput() throws Exception {
 
         Exception exception = assertThrows(Exception.class, ()-> {
-            instructionParser.roverInstruction("abc");
+            instructionParser.parseRoverInstructions("abc");
         });
 
         String expectedMessage = "Invalid Input please enter enter either: 'l' - to rotate rover left 90 degrees, "+
@@ -74,8 +73,8 @@ class InstructionParserTest {
         List<InstructionEnum> expectedResult = List.of(new InstructionEnum[]{InstructionEnum.L});
         List<InstructionEnum> expectedResult2 = List.of(new InstructionEnum[]{InstructionEnum.M});
         //Act
-        List<InstructionEnum> actualResult = instructionParser.roverInstruction(input);
-        List<InstructionEnum> actualResult2 = instructionParser.roverInstruction(input2);
+        List<InstructionEnum> actualResult = instructionParser.parseRoverInstructions(input);
+        List<InstructionEnum> actualResult2 = instructionParser.parseRoverInstructions(input2);
         //Assert
         assertAll(
                 ()-> assertEquals(expectedResult, actualResult),
@@ -94,9 +93,9 @@ class InstructionParserTest {
         List<InstructionEnum> expectedResult2 = List.of(new InstructionEnum[]{InstructionEnum.L, InstructionEnum.L, InstructionEnum.L, InstructionEnum.L});
         List<InstructionEnum>expectedResult3 = List.of(new InstructionEnum[]{InstructionEnum.M, InstructionEnum.M, InstructionEnum.M, InstructionEnum.M});
         //Act
-        List<InstructionEnum> actualResult = instructionParser.roverInstruction(input);
-        List<InstructionEnum> actualResult2 = instructionParser.roverInstruction(input2);
-        List<InstructionEnum> actualResult3 = instructionParser.roverInstruction(input3);
+        List<InstructionEnum> actualResult = instructionParser.parseRoverInstructions(input);
+        List<InstructionEnum> actualResult2 = instructionParser.parseRoverInstructions(input2);
+        List<InstructionEnum> actualResult3 = instructionParser.parseRoverInstructions(input3);
         //Assert
         assertAll(
                 ()-> assertEquals(expectedResult, actualResult),
