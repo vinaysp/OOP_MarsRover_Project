@@ -14,7 +14,6 @@ class InstructionParserTest {
 
     @BeforeEach
     void beforeEach() {
-
         instructionParser = new InstructionParser();
     }
 
@@ -65,7 +64,7 @@ class InstructionParserTest {
 
 
     @Test
-    @DisplayName("should return a collection of InstructionEnum when passed valid single letter String input")
+    @DisplayName("should return a List of InstructionEnum when passed valid single letter String input")
     void testInstructionParserWithValidSingleLetterStringInput() throws Exception {
         //Arrange
         String input = "L";
@@ -83,7 +82,7 @@ class InstructionParserTest {
     }
 
     @Test
-    @DisplayName("should return a collection of InstructionEnum when passed valid multiple letter string input")
+    @DisplayName("should return a List of InstructionEnum when passed valid multiple letter string input")
     void testInstructionParserWithValidMultipleLetterStringInput() throws Exception {
         //Arrange
         String input = "LMLM";
