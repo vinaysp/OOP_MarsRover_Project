@@ -73,7 +73,7 @@ class PlateauSizeParserTest {
     }
 
     @Test
-    @DisplayName("parsedPlateauSize: should return exception message when string input is more than two number characters")
+    @DisplayName("parsedPlateauSize: should return exception message when string input is more than two number characters and mix of numbers and letters")
     void testInvalidStringInputMixOfNumberAndLetterCharacters(){
         Exception exception = assertThrows(Exception.class, ()-> {
             plateauSizeParser.parsedPlateauSize("ab1");
