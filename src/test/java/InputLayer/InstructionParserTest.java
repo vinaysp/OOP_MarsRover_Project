@@ -21,12 +21,12 @@ class InstructionParserTest {
 
     @Test
     @DisplayName("should return a exception message when passed invalid Empty String input")
-    void testInstructionParserWithInvalidStringInput() throws Exception {
+    void testInstructionParserWithInvalidEmptyStringInput() throws Exception {
         Exception exception = assertThrows(Exception.class, ()-> {
             instructionParser.roverInstruction("");
         });
 
-        String expectedMessage = "cannot provide empty input please enter a valid instruction";
+        String expectedMessage = "Invalid Input, input cannot be empty or null";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -41,12 +41,29 @@ class InstructionParserTest {
             instructionParser.roverInstruction(null);
         });
 
-        String expectedMessage = "cannot provide empty input please enter a valid instruction";
+        String expectedMessage = "Invalid Input, input cannot be empty or null";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
 
     }
+
+    @Test
+    @DisplayName("should return a exception message when passed invalid String input")
+    void testInstructionParserWithInvalidStringInput() throws Exception {
+
+        Exception exception = assertThrows(Exception.class, ()-> {
+            instructionParser.roverInstruction("abc");
+        });
+
+        String expectedMessage = "Invalid Input please enter enter either: 'l' - to rotate rover left 90 degrees, "+
+        "'r' - rotate rover right 90 degrees "+"or 'm' to move rover forward one space in its current facing direction";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+
+    }
+
 
     @Test
     @DisplayName("should return a collection of InstructionEnum when passed valid single letter String input")
