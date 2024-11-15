@@ -1,6 +1,6 @@
 package InputLayer;
 
-enum InstructionEnum {
+public enum InstructionEnum {
     L,
     R,
     M
