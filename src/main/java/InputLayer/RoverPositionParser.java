@@ -13,7 +13,7 @@ class RoverPositionParser {
                throw new IllegalArgumentException(
                        "Invalid input, input cannot be more than three characters"
                );
-           } else if (!Character.isDigit(input.charAt(0)) && !Character.isDigit(input.charAt(1))){
+           } else if (!Character.isDigit(input.charAt(0)) || !Character.isDigit(input.charAt(1))){
                throw new IllegalArgumentException(
                        "Invalid input, first two characters of input must be digits"
                );
