@@ -114,6 +114,19 @@ class RoverPositionParserTest {
         assertTrue(actualMessage.contains(expectedMessage));
     }
 
+    @Test
+    @DisplayName("RoverPositionParser: should return error for an input string where either first or second character in input is not a number")
+    void testInvalidInputWhereFirstOrSecondCharacterIsNotNumber() {
+        Exception exception = assertThrows(Exception.class, () -> {
+            roverPositionParser.instructionsToSetRoverPosition("1aN");
+        });
+
+        String expectedMessage = "Invalid input, first two characters of input must be digits";
+        String actualMessage = exception.getMessage();
+
+        assertTrue(actualMessage.contains(expectedMessage));
+    }
+
 
 
 
