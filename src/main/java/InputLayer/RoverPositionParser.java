@@ -1,9 +1,12 @@
-package InputLayer;
+package InputLayer.InputParsers;
 
-class RoverPositionParser {
+import InputLayer.CompassDirectionEnum;
+import InputLayer.RoverPosition;
+
+public class RoverPositionParser {
 
 
-       RoverPosition instructionsToSetRoverPosition(String input) {
+       public RoverPosition instructionsToSetRoverPosition(String input) {
 
            if (input == null || input.isEmpty()) {
                throw new IllegalArgumentException(

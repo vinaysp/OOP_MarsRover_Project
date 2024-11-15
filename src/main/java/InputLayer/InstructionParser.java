@@ -1,11 +1,13 @@
-package InputLayer;
+package InputLayer.InputParsers;
+
+import InputLayer.InstructionEnum;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class InstructionParser {
+public class InstructionParser {
 
-    List<InstructionEnum> parseRoverInstructions(String input) throws Exception {
+    public List<InstructionEnum> parseRoverInstructions(String input) throws Exception {
 
         if( input == null || input.isEmpty()){
             throw new IllegalArgumentException("Invalid Input, input cannot be empty or null");
