@@ -1,6 +1,6 @@
 package InputLayer;
 
-class RoverPosition {
+public class RoverPosition {
 
 
     private int roverPositionX;
