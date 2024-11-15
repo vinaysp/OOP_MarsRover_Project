@@ -3,11 +3,11 @@ package InputLayer;
 class RoverPositionParser {
 
 
-       RoverPosition instructionsToSetRoverPosition(String input) {
+       int[] instructionsToSetRoverPosition(String input) {
 
            if (input == null || input.isEmpty()) {
                throw new IllegalArgumentException(
-                       "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection of Rover (N,S,E,W)"
+                       "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection (N,S,E,W) rover is facing"
                );
            } else if (input.length() > 3){
                throw new IllegalArgumentException(
@@ -23,10 +23,7 @@ class RoverPositionParser {
                );
            }
 
-           RoverPosition setRoverPosition = new RoverPosition(
-                   Character.getNumericValue(input.charAt(0)),
-                   Character.getNumericValue(input.charAt(1)),
-                   CompassDirectionEnum.valueOf(String.valueOf(input.charAt(2))));
+           int[] setRoverPosition = new int[]{Character.getNumericValue(input.charAt(0)),Character.getNumericValue(input.charAt(1))};
 
            return setRoverPosition;
     }

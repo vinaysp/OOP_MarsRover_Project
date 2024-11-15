@@ -20,17 +20,13 @@ class RoverPositionParserTest {
     void testWithValidStringInput(){
         //Arrange
         String input = "12N";
-        RoverPosition expectedResult = new RoverPosition(1,2,CompassDirectionEnum.N);
+        int[] expectedResult = new int[]{1,2};
 
         //Act
-        RoverPosition actualResult = roverPositionParser.instructionsToSetRoverPosition(input);
+        int[] actualResult = roverPositionParser.instructionsToSetRoverPosition(input);
 
         //Assert
-        assertAll(
-                () -> assertEquals(expectedResult.getRoverPositionX(),actualResult.getRoverPositionX()),
-                () -> assertEquals(expectedResult.getRoverPositionY(),actualResult.getRoverPositionY()),
-                () -> assertEquals(expectedResult.getFacing(),actualResult.getFacing())
-        );
+        assertArrayEquals(expectedResult,actualResult);
 
     }
 
@@ -41,7 +37,7 @@ class RoverPositionParserTest {
             roverPositionParser.instructionsToSetRoverPosition("");
         });
 
-        String expectedMessage = "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection of Rover (N,S,E,W)";
+        String expectedMessage = "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection (N,S,E,W) rover is facing";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
@@ -54,7 +50,7 @@ class RoverPositionParserTest {
             roverPositionParser.instructionsToSetRoverPosition(null);
         });
 
-        String expectedMessage = "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection of Rover (N,S,E,W)";
+        String expectedMessage = "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection (N,S,E,W) rover is facing";
         String actualMessage = exception.getMessage();
 
         assertTrue(actualMessage.contains(expectedMessage));
