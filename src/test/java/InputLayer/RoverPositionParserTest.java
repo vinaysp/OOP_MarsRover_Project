@@ -18,17 +18,21 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should take a valid string input and store the input in the correct fields in RoverPosition class  ")
+    @DisplayName("RoverPositionParser: should take a valid string input and store the input in the correct fields in RoverPosition class")
     void testWithValidStringInput(){
         //Arrange
         String input = "12N";
         RoverPosition expectedResult = new RoverPosition(1,2,CompassDirectionEnum.N);
 
         //Act
-        RoverPosition actualResult = roverPositionParser.setRoverPosition(input);
+        RoverPosition actualResult = roverPositionParser.instructionsToSetRoverPosition(input);
 
         //Assert
-        assertEquals(expectedResult,actualResult);
+        assertAll(
+                () -> assertEquals(expectedResult.getRoverPositionX(),actualResult.getRoverPositionX()),
+                () -> assertEquals(expectedResult.getRoverPositionY(),actualResult.getRoverPositionY()),
+                () -> assertEquals(expectedResult.getFacing(),actualResult.getFacing())
+        );
 
 
     }
