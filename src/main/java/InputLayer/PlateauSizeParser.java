@@ -2,10 +2,10 @@ package InputLayer;
 
 import static java.lang.Integer.parseInt;
 
-public class PlateauSizeParser {
+class PlateauSizeParser {
 
 
-    public int[] parsedPlateauSize(String input) throws Exception {
+    int[] parsedPlateauSize(String input) throws Exception {
 
         if(input == null || input.isEmpty()){
             throw new IllegalArgumentException("Invalid input, input cannot be empty or null");
