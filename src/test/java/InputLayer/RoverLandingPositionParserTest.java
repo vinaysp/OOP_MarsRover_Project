@@ -6,24 +6,24 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RoverPositionParserTest {
+class RoverLandingPositionParserTest {
 
-    RoverPositionParser roverPositionParser;
+    RoverLandingPositionParser roverLandingPositionParser;
 
     @BeforeEach
     void setUp() {
-        roverPositionParser = new RoverPositionParser();
+        roverLandingPositionParser = new RoverLandingPositionParser();
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should take a valid string input and store the input in the correct fields in RoverPosition class")
+    @DisplayName("RoverLandingPositionParser: should take a valid string input and store the input in the correct fields in RoverPosition class")
     void testWithValidStringInput(){
         //Arrange
         String input = "12N";
         int[] expectedResult = new int[]{1,2};
 
         //Act
-        int[] actualResult = roverPositionParser.instructionsToSetRoverPosition(input);
+        int[] actualResult = roverLandingPositionParser.instructionsToSetRoverPosition(input);
 
         //Assert
         assertArrayEquals(expectedResult,actualResult);
@@ -31,10 +31,10 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should return error for an empty or null input string")
+    @DisplayName("RoverLandingPositionParser: should return error for an empty or null input string")
     void testWithInvalidEmptyStringInput() {
         Exception exception = assertThrows(Exception.class, ()-> {
-            roverPositionParser.instructionsToSetRoverPosition("");
+            roverLandingPositionParser.instructionsToSetRoverPosition("");
         });
 
         String expectedMessage = "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection (N,S,E,W) rover is facing";
@@ -44,10 +44,10 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should return error for an empty or null input string")
+    @DisplayName("RoverLandingPositionParser: should return error for an empty or null input string")
     void testWithInvalidNullStringInput() {
         Exception exception = assertThrows(Exception.class, () -> {
-            roverPositionParser.instructionsToSetRoverPosition(null);
+            roverLandingPositionParser.instructionsToSetRoverPosition(null);
         });
 
         String expectedMessage = "Invalid input, instruction must be given as follows : PositionX of rover(number) PositionY of rover(number) CompassDirection (N,S,E,W) rover is facing";
@@ -57,10 +57,10 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should return error for an input string of length greater than 3")
+    @DisplayName("RoverLandingPositionParser: should return error for an input string of length greater than 3")
     void testWithInvalidStringInputGreaterThanLengthThree() {
         Exception exception = assertThrows(Exception.class, () -> {
-            roverPositionParser.instructionsToSetRoverPosition("1234");
+            roverLandingPositionParser.instructionsToSetRoverPosition("1234");
         });
 
         String expectedMessage = "Invalid input, input cannot be more than three characters";
@@ -70,10 +70,10 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should return error for an input string where first two characters are not digits")
+    @DisplayName("RoverLandingPositionParser: should return error for an input string where first two characters are not digits")
     void testWithInvalidStringInputFirstTwoCharactersNotDigits() {
         Exception exception = assertThrows(Exception.class, () -> {
-            roverPositionParser.instructionsToSetRoverPosition("abN");
+            roverLandingPositionParser.instructionsToSetRoverPosition("abN");
         });
 
         String expectedMessage = "Invalid input, first two characters of input must be digits";
@@ -83,10 +83,10 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should return error for an input string where last character is not a compass point")
+    @DisplayName("RoverLandingPositionParser: should return error for an input string where last character is not a compass point")
     void testWithInvalidStringInputLastCharacterNotCompassPoint() {
         Exception exception = assertThrows(Exception.class, () -> {
-            roverPositionParser.instructionsToSetRoverPosition("12c");
+            roverLandingPositionParser.instructionsToSetRoverPosition("12c");
         });
 
         String expectedMessage = "Invalid input, third character in input must be a compass point written in capitals as either: N,S,W,E";
@@ -96,10 +96,10 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should return error for an input string where last character is a compass point written in lowercase")
+    @DisplayName("RoverLandingPositionParser: should return error for an input string where last character is a compass point written in lowercase")
     void testWithLowerCaseCompassPoint() {
         Exception exception = assertThrows(Exception.class, () -> {
-            roverPositionParser.instructionsToSetRoverPosition("12n");
+            roverLandingPositionParser.instructionsToSetRoverPosition("12n");
         });
 
         String expectedMessage = "Invalid input, third character in input must be a compass point written in capitals as either: N,S,W,E";
@@ -109,10 +109,10 @@ class RoverPositionParserTest {
     }
 
     @Test
-    @DisplayName("RoverPositionParser: should return error for an input string where either first or second character in input is not a number")
+    @DisplayName("RoverLandingPositionParser: should return error for an input string where either first or second character in input is not a number")
     void testInvalidInputWhereFirstOrSecondCharacterIsNotNumber() {
         Exception exception = assertThrows(Exception.class, () -> {
-            roverPositionParser.instructionsToSetRoverPosition("1aN");
+            roverLandingPositionParser.instructionsToSetRoverPosition("1aN");
         });
 
         String expectedMessage = "Invalid input, first two characters of input must be digits";
@@ -120,9 +120,6 @@ class RoverPositionParserTest {
 
         assertTrue(actualMessage.contains(expectedMessage));
     }
-
-
-
 
 
 }
