@@ -2,6 +2,7 @@ package LogicLayer;
 
 import InputLayer.EnumCompassDirection;
 import InputLayer.EnumInstruction;
+import InputLayer.RoverPosition;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -100,6 +101,29 @@ class RoverClassTest {
                 () -> assertEquals(expectedResultForLeftRotate, actualResultForRotateLeft),
                 () -> assertEquals(expectedResultForRightRotate, actualResultForRotateRight)
         );
+    }
+
+    @Test
+    @DisplayName("moveRoverMethod: should return/update the rover position based on current direction its facing and an input to move")
+    void testRoverMoveWhenFacingNorth(){
+
+        rover.setRoverPositionX(2);
+        rover.setRoverPositionY(3);
+        rover.setFacing(EnumCompassDirection.N);
+
+        int xPosition = rover.getRoverPositionX();
+        int yPosition = rover.getRoverPositionY();
+        EnumCompassDirection roverFacing = rover.getFacing();
+
+        RoverPosition actualResult = rover.moveRover(roverFacing, xPosition, yPosition);
+
+        int getNewPositionX = rover.getRoverPositionX();
+        int getNewPositionY = rover.getRoverPositionY();
+
+        int[] expectedResult = new int[]{getNewPositionX,getNewPositionY};
+
+        assertEquals(expectedResult, actualResult);
+
     }
 
 
