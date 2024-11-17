@@ -2,7 +2,7 @@ package InputLayer;
 
 import static java.lang.Integer.parseInt;
 
-class PlateauSizeParser {
+class ParserPlateauSize {
 
 
     int[] parsedPlateauSize(String input) throws Exception {

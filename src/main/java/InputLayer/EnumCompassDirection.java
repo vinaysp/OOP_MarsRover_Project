@@ -1,6 +1,6 @@
 package InputLayer;
 
-public enum CompassDirectionEnum {
+public enum EnumCompassDirection {
     N,
     S,
     E,

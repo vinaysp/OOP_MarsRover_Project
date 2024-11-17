@@ -5,9 +5,9 @@ public class RoverPosition {
 
     private int roverPositionX;
     private int roverPositionY;
-    private CompassDirectionEnum facing;
+    private EnumCompassDirection facing;
 
-    RoverPosition(int roverPositionX, int roverPositionY, CompassDirectionEnum compassDirection) {
+    RoverPosition(int roverPositionX, int roverPositionY, EnumCompassDirection compassDirection) {
     }
 
 
@@ -19,7 +19,7 @@ public class RoverPosition {
         return roverPositionY;
     }
 
-    CompassDirectionEnum getFacing() {
+    EnumCompassDirection getFacing() {
         return facing;
     }
 }

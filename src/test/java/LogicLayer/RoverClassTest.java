@@ -1,7 +1,7 @@
 package LogicLayer;
 
-import InputLayer.CompassDirectionEnum;
-import InputLayer.InstructionEnum;
+import InputLayer.EnumCompassDirection;
+import InputLayer.EnumInstruction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -21,16 +21,16 @@ class RoverClassTest {
     @DisplayName("roverRotateMethod: should return updated compass position either West or East after a starting position of North")
     void testRotateRoverFromNorthPosition() {
 
-        CompassDirectionEnum startingPositionInput = CompassDirectionEnum.N;
+        EnumCompassDirection startingPositionInput = EnumCompassDirection.N;
 
-        InstructionEnum inputDirectionChangeLeft = InstructionEnum.L;
-        InstructionEnum inputDirectionChangeRight = InstructionEnum.R;
+        EnumInstruction inputDirectionChangeLeft = EnumInstruction.L;
+        EnumInstruction inputDirectionChangeRight = EnumInstruction.R;
 
-        CompassDirectionEnum expectedResultForLeftRotate = CompassDirectionEnum.W;
-        CompassDirectionEnum expectedResultForRightRotate = CompassDirectionEnum.E;
+        EnumCompassDirection expectedResultForLeftRotate = EnumCompassDirection.W;
+        EnumCompassDirection expectedResultForRightRotate = EnumCompassDirection.E;
 
-        CompassDirectionEnum actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
-        CompassDirectionEnum actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
+        EnumCompassDirection actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
+        EnumCompassDirection actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
 
         assertAll(
                 () -> assertEquals(expectedResultForLeftRotate, actualResultForRotateLeft),
@@ -43,16 +43,16 @@ class RoverClassTest {
         @DisplayName("roverRotateMethod: should return updated compass position either North or South after after a starting position of East")
         void testRotateRoverFromEastPosition() {
 
-            CompassDirectionEnum startingPositionInput = CompassDirectionEnum.E;
+            EnumCompassDirection startingPositionInput = EnumCompassDirection.E;
 
-            InstructionEnum inputDirectionChangeLeft = InstructionEnum.L;
-            InstructionEnum inputDirectionChangeRight = InstructionEnum.R;
+            EnumInstruction inputDirectionChangeLeft = EnumInstruction.L;
+            EnumInstruction inputDirectionChangeRight = EnumInstruction.R;
 
-            CompassDirectionEnum expectedResultForLeftRotate = CompassDirectionEnum.N;
-            CompassDirectionEnum expectedResultForRightRotate = CompassDirectionEnum.S;
+            EnumCompassDirection expectedResultForLeftRotate = EnumCompassDirection.N;
+            EnumCompassDirection expectedResultForRightRotate = EnumCompassDirection.S;
 
-            CompassDirectionEnum actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
-            CompassDirectionEnum actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
+            EnumCompassDirection actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
+            EnumCompassDirection actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
 
             assertAll(
                     () -> assertEquals(expectedResultForLeftRotate, actualResultForRotateLeft),
@@ -64,16 +64,16 @@ class RoverClassTest {
     @DisplayName("roverRotateMethod: should return updated compass position either East or West after a starting position of South")
     void testRotateRoverFromSouthPosition() {
 
-        CompassDirectionEnum startingPositionInput = CompassDirectionEnum.S;
+        EnumCompassDirection startingPositionInput = EnumCompassDirection.S;
 
-        InstructionEnum inputDirectionChangeLeft = InstructionEnum.L;
-        InstructionEnum inputDirectionChangeRight = InstructionEnum.R;
+        EnumInstruction inputDirectionChangeLeft = EnumInstruction.L;
+        EnumInstruction inputDirectionChangeRight = EnumInstruction.R;
 
-        CompassDirectionEnum expectedResultForLeftRotate = CompassDirectionEnum.E;
-        CompassDirectionEnum expectedResultForRightRotate = CompassDirectionEnum.W;
+        EnumCompassDirection expectedResultForLeftRotate = EnumCompassDirection.E;
+        EnumCompassDirection expectedResultForRightRotate = EnumCompassDirection.W;
 
-        CompassDirectionEnum actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
-        CompassDirectionEnum actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
+        EnumCompassDirection actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
+        EnumCompassDirection actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
 
         assertAll(
                 () -> assertEquals(expectedResultForLeftRotate, actualResultForRotateLeft),
@@ -85,21 +85,22 @@ class RoverClassTest {
     @DisplayName("roverRotateMethod: should return updated compass position either North or South after a starting position of West")
     void testRotateRoverFromWestPosition() {
 
-        CompassDirectionEnum startingPositionInput = CompassDirectionEnum.W;
+        EnumCompassDirection startingPositionInput = EnumCompassDirection.W;
 
-        InstructionEnum inputDirectionChangeLeft = InstructionEnum.L;
-        InstructionEnum inputDirectionChangeRight = InstructionEnum.R;
+        EnumInstruction inputDirectionChangeLeft = EnumInstruction.L;
+        EnumInstruction inputDirectionChangeRight = EnumInstruction.R;
 
-        CompassDirectionEnum expectedResultForLeftRotate = CompassDirectionEnum.S;
-        CompassDirectionEnum expectedResultForRightRotate = CompassDirectionEnum.N;
+        EnumCompassDirection expectedResultForLeftRotate = EnumCompassDirection.S;
+        EnumCompassDirection expectedResultForRightRotate = EnumCompassDirection.N;
 
-        CompassDirectionEnum actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
-        CompassDirectionEnum actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
+        EnumCompassDirection actualResultForRotateLeft = rover.rotateRover(startingPositionInput, inputDirectionChangeLeft);
+        EnumCompassDirection actualResultForRotateRight = rover.rotateRover(startingPositionInput, inputDirectionChangeRight);
 
         assertAll(
                 () -> assertEquals(expectedResultForLeftRotate, actualResultForRotateLeft),
                 () -> assertEquals(expectedResultForRightRotate, actualResultForRotateRight)
         );
     }
+
 
 }

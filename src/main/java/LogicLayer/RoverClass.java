@@ -1,58 +1,58 @@
 package LogicLayer;
 
 
-import InputLayer.CompassDirectionEnum;
-import InputLayer.InstructionEnum;
+import InputLayer.EnumCompassDirection;
+import InputLayer.EnumInstruction;
 
 
 public class RoverClass {
 
 
-    public CompassDirectionEnum rotateRover(CompassDirectionEnum startingCompassPositionInput, InstructionEnum inputDirectionChange) {
+    public EnumCompassDirection rotateRover(EnumCompassDirection startingCompassPositionInput, EnumInstruction inputDirectionChange) {
 
 
-        CompassDirectionEnum finishingCompassPositionOutput = null;
+        EnumCompassDirection finishingCompassPositionOutput = null;
 
-       if (startingCompassPositionInput == CompassDirectionEnum.N) {
+       if (startingCompassPositionInput == EnumCompassDirection.N) {
            switch (inputDirectionChange) {
-               case InstructionEnum.L:
-                   finishingCompassPositionOutput = CompassDirectionEnum.W;
+               case EnumInstruction.L:
+                   finishingCompassPositionOutput = EnumCompassDirection.W;
                    break;
-               case InstructionEnum.R:
-                   finishingCompassPositionOutput = CompassDirectionEnum.E;
+               case EnumInstruction.R:
+                   finishingCompassPositionOutput = EnumCompassDirection.E;
                    break;
            }
        }
 
-        if (startingCompassPositionInput == CompassDirectionEnum.S) {
+        if (startingCompassPositionInput == EnumCompassDirection.S) {
             switch (inputDirectionChange) {
-                case InstructionEnum.L:
-                    finishingCompassPositionOutput = CompassDirectionEnum.E;
+                case EnumInstruction.L:
+                    finishingCompassPositionOutput = EnumCompassDirection.E;
                     break;
-                case InstructionEnum.R:
-                    finishingCompassPositionOutput = CompassDirectionEnum.W;
+                case EnumInstruction.R:
+                    finishingCompassPositionOutput = EnumCompassDirection.W;
                     break;
             }
         }
 
-        if (startingCompassPositionInput == CompassDirectionEnum.E) {
+        if (startingCompassPositionInput == EnumCompassDirection.E) {
             switch (inputDirectionChange) {
-                case InstructionEnum.L:
-                    finishingCompassPositionOutput = CompassDirectionEnum.N;
+                case EnumInstruction.L:
+                    finishingCompassPositionOutput = EnumCompassDirection.N;
                     break;
-                case InstructionEnum.R:
-                    finishingCompassPositionOutput = CompassDirectionEnum.S;
+                case EnumInstruction.R:
+                    finishingCompassPositionOutput = EnumCompassDirection.S;
                     break;
             }
         }
 
-        if (startingCompassPositionInput == CompassDirectionEnum.W) {
+        if (startingCompassPositionInput == EnumCompassDirection.W) {
             switch (inputDirectionChange) {
-                case InstructionEnum.L:
-                    finishingCompassPositionOutput = CompassDirectionEnum.S;
+                case EnumInstruction.L:
+                    finishingCompassPositionOutput = EnumCompassDirection.S;
                     break;
-                case InstructionEnum.R:
-                    finishingCompassPositionOutput = CompassDirectionEnum.N;
+                case EnumInstruction.R:
+                    finishingCompassPositionOutput = EnumCompassDirection.N;
                     break;
             }
         }
@@ -60,6 +60,5 @@ public class RoverClass {
         return finishingCompassPositionOutput;
 
     }
-
 
 }

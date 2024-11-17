@@ -1,6 +1,6 @@
 package InputLayer;
 
-class RoverLandingPositionParser {
+class ParserRoverLandingPosition {
 
 
        int[] instructionsToSetRoverPosition(String input) {

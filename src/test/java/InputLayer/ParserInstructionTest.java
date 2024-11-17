@@ -8,20 +8,20 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class InstructionParserTest {
+class ParserInstructionTest {
 
-    InstructionParser instructionParser;
+    ParserInstruction parserInstruction;
 
     @BeforeEach
     void beforeEach() {
-        instructionParser = new InstructionParser();
+        parserInstruction = new ParserInstruction();
     }
 
     @Test
     @DisplayName("should return a exception message when passed invalid Empty String input")
     void testInstructionParserWithInvalidEmptyStringInput() throws Exception {
         Exception exception = assertThrows(Exception.class, ()-> {
-            instructionParser.parseRoverInstructions("");
+            parserInstruction.parseRoverInstructions("");
         });
 
         String expectedMessage = "Invalid Input, input cannot be empty or null";
@@ -36,7 +36,7 @@ class InstructionParserTest {
     void testInstructionParserWithInvalidNullInput() throws Exception {
 
         Exception exception = assertThrows(Exception.class, ()-> {
-            instructionParser.parseRoverInstructions(null);
+            parserInstruction.parseRoverInstructions(null);
         });
 
         String expectedMessage = "Invalid Input, input cannot be empty or null";
@@ -51,7 +51,7 @@ class InstructionParserTest {
     void testInstructionParserWithInvalidStringInput() throws Exception {
 
         Exception exception = assertThrows(Exception.class, ()-> {
-            instructionParser.parseRoverInstructions("abc");
+            parserInstruction.parseRoverInstructions("abc");
         });
 
         String expectedMessage = "Invalid Input please enter enter either: 'l' - to rotate rover left 90 degrees, "+
@@ -64,16 +64,16 @@ class InstructionParserTest {
 
 
     @Test
-    @DisplayName("should return a List of InstructionEnum when passed valid single letter String input")
+    @DisplayName("should return a List of EnumInstruction when passed valid single letter String input")
     void testInstructionParserWithValidSingleLetterStringInput() throws Exception {
         //Arrange
         String input = "L";
         String input2 = "M";
-        List<InstructionEnum> expectedResult = List.of(new InstructionEnum[]{InstructionEnum.L});
-        List<InstructionEnum> expectedResult2 = List.of(new InstructionEnum[]{InstructionEnum.M});
+        List<EnumInstruction> expectedResult = List.of(new EnumInstruction[]{EnumInstruction.L});
+        List<EnumInstruction> expectedResult2 = List.of(new EnumInstruction[]{EnumInstruction.M});
         //Act
-        List<InstructionEnum> actualResult = instructionParser.parseRoverInstructions(input);
-        List<InstructionEnum> actualResult2 = instructionParser.parseRoverInstructions(input2);
+        List<EnumInstruction> actualResult = parserInstruction.parseRoverInstructions(input);
+        List<EnumInstruction> actualResult2 = parserInstruction.parseRoverInstructions(input2);
         //Assert
         assertAll(
                 ()-> assertEquals(expectedResult, actualResult),
@@ -82,19 +82,19 @@ class InstructionParserTest {
     }
 
     @Test
-    @DisplayName("should return a List of InstructionEnum when passed valid multiple letter string input")
+    @DisplayName("should return a List of EnumInstruction when passed valid multiple letter string input")
     void testInstructionParserWithValidMultipleLetterStringInput() throws Exception {
         //Arrange
         String input = "LMLM";
         String input2 = "LLLL";
         String input3 = "MMMM";
-        List<InstructionEnum> expectedResult = List.of(new InstructionEnum[]{InstructionEnum.L, InstructionEnum.M, InstructionEnum.L, InstructionEnum.M});
-        List<InstructionEnum> expectedResult2 = List.of(new InstructionEnum[]{InstructionEnum.L, InstructionEnum.L, InstructionEnum.L, InstructionEnum.L});
-        List<InstructionEnum>expectedResult3 = List.of(new InstructionEnum[]{InstructionEnum.M, InstructionEnum.M, InstructionEnum.M, InstructionEnum.M});
+        List<EnumInstruction> expectedResult = List.of(new EnumInstruction[]{EnumInstruction.L, EnumInstruction.M, EnumInstruction.L, EnumInstruction.M});
+        List<EnumInstruction> expectedResult2 = List.of(new EnumInstruction[]{EnumInstruction.L, EnumInstruction.L, EnumInstruction.L, EnumInstruction.L});
+        List<EnumInstruction>expectedResult3 = List.of(new EnumInstruction[]{EnumInstruction.M, EnumInstruction.M, EnumInstruction.M, EnumInstruction.M});
         //Act
-        List<InstructionEnum> actualResult = instructionParser.parseRoverInstructions(input);
-        List<InstructionEnum> actualResult2 = instructionParser.parseRoverInstructions(input2);
-        List<InstructionEnum> actualResult3 = instructionParser.parseRoverInstructions(input3);
+        List<EnumInstruction> actualResult = parserInstruction.parseRoverInstructions(input);
+        List<EnumInstruction> actualResult2 = parserInstruction.parseRoverInstructions(input2);
+        List<EnumInstruction> actualResult3 = parserInstruction.parseRoverInstructions(input3);
         //Assert
         assertAll(
                 ()-> assertEquals(expectedResult, actualResult),
