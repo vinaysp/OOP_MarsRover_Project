@@ -3,9 +3,10 @@ package LogicLayer;
 
 import InputLayer.EnumCompassDirection;
 import InputLayer.EnumInstruction;
+import InputLayer.RoverPosition;
 
 
-public class RoverClass {
+public class RoverClass extends RoverPosition {
 
 
     public EnumCompassDirection rotateRover(EnumCompassDirection startingCompassPositionInput, EnumInstruction inputDirectionChange) {
@@ -61,4 +62,10 @@ public class RoverClass {
 
     }
 
+    public RoverPosition moveRover(EnumCompassDirection roverFacing, int roverPositionX, int roverPositionY) {
+
+
+
+        return null;
+    }
 }
