@@ -7,19 +7,31 @@ public class RoverPosition {
     private int roverPositionY;
     private EnumCompassDirection facing;
 
-    RoverPosition(int roverPositionX, int roverPositionY, EnumCompassDirection compassDirection) {
-    }
+   /* RoverPosition(int roverPositionX, int roverPositionY, EnumCompassDirection compassDirection) {
+    }*/
 
 
-    int getRoverPositionX() {
+    public int getRoverPositionX() {
         return roverPositionX;
     }
 
-    int getRoverPositionY() {
+    public int getRoverPositionY() {
         return roverPositionY;
     }
 
-    EnumCompassDirection getFacing() {
+    public EnumCompassDirection getFacing() {
         return facing;
+    }
+
+    public void setRoverPositionX(int roverPositionX) {
+        this.roverPositionX = roverPositionX;
+    }
+
+    public void setRoverPositionY(int roverPositionY) {
+        this.roverPositionY = roverPositionY;
+    }
+
+    public void setFacing(EnumCompassDirection facing) {
+        this.facing = facing;
     }
 }
